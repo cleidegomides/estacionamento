@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Veículos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark" style="justify-content: center; margin-bottom: 10px;">
+    <span class="navbar-brand mb-0 h1"><h2>Cadastro Veículo</h2></span>
+  </nav>
+    <div style="justify-content: center;">
+      <th:block th:include="mensagemvalidacao"></th:block>
+    <form method="post" action="/estacionamento/veiculonovo">
+    <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+      <label th:for="tipoVeiculo">Tipo Veículo</label>
+      <select name="tipoVeiculo">
+        <option value=""></option>
+        <option th:each="tipoVeiculo : ${tipoVeiculo}" th:value="${tipoVeiculo}" th:text="${tipoVeiculo}" selected="selected"></option>
+      </select>
+      Placa: <input type="text" value="" name="placa" placeholder="Placa *"/>
+    </div>
+    <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+    <!-- Marca: <input type="text" value="" name="marcaVeiculo" placeholder="Marca *"/>  -->
+     <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+      <label th:for="marcaCarro">Marca Carro</label>
+      <select name = "marcaCarro">
+        <option value=""></option>
+        <option th:each="marcaCarro : ${marcaCarro}" th:value="${marcaCarro}" th:text="${marcaCarro}" selected="selected"></option>
+      </select>
+      <label th:for="marcaMoto">Marca Moto</label>
+      <select name="marcaMoto" >
+        <option value=""></option>
+        <option th:each="marcaMoto : ${marcaMoto}" th:value="${marcaMoto}" th:text="${marcaMoto}" selected="selected"></option>
+      </select>
+
+      Modelo: <input type="text"  value="" name="modelo" placeholder="Modelo *"/>
+    </div>
+    <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+      Hora Entrada:<input type="time" value="" name="horaEntrada" style="margin-left: 10px;"/>
+    </div>
+    <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+    Possui Utilitários?<input type="checkbox" name="utilitario" value="true" style="margin-left: 10px;"/>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+      <button type="submit" style="margin-left: 20px;">Salvar</button>
+    </div>
+    <div class="form-group" style="margin-bottom: 20px; margin-left: 20px;">
+      <p>(*)Campos Obrigadatórios</p>
+    </div>
+    </form>
+  </div>
+  </div>
+</body>
+</html>

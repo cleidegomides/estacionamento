@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Veiculos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://unpkg.com/@ag-grid-community/all-modules@24.0.0/dist/ag-grid-community.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark" style="justify-content: center; margin-bottom: 10px;">
+      <span class="navbar-brand mb-0 h1"><h2>Dados Estacionamento</h2></span>
+    </nav>    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dados Estacionamento</li>
+        </ol>
+    </nav>
+    <div class="container">        
+        <div class="d-inline">
+            Valor Hora: <h5 th:text="${#numbers.formatCurrency(estacionamento.valorHora)}"></h5>
+            Data: <h5 th:text="${#temporals.format(estacionamento.dataOperacao,'dd/MM/yyyy')}"></h5>
+            <a href="/estacionamento/detalhefaturamento" class="btn btn-secondary btn-block float-right" style="width: 20%;; margin-top: -60px; margin-left: 30px;">Ver Faturamento</a>
+            <a href="/estacionamento/cadastro" class="btn btn-secondary btn-block float-right" style="width: 20%; margin-right: 250px; margin-top: -60px">Cadastrar Novo Veículo</a>
+        </div>
+
+        <div id="myGrid" class="ag-theme-alpine" style="height: 500px;"></div>
+<!--       
+        <div layout:fragment="content">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <td>Código</td>
+                  <td>Placa</td>
+                  <td>Tipo</td>
+                  <td>Marca Carro</td>
+                  <td>Marca Moto</td>
+                  <td>Modelo</td>
+                  <td>Possui Utilitário?</td>
+                  <td>Hora Entrada</td>
+                  <td>Ações</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:if="${estacionamento.veiculos.empty}">
+                  <td colspan="7">Nenhum Veiculo</td>
+                </tr>
+                <tr th:each="veiculo : ${estacionamento.veiculos}">
+                  <td th:text="${veiculo.id}"></td>
+                  <td th:text="${veiculo.placa}"></td>
+                  <td th:text="${veiculo.tipoVeiculo}"></td>
+                  <td th:text="${veiculo.marcaCarro}"></td>
+                  <td th:text="${veiculo.marcaMoto}"></td>
+                  <td th:text="${veiculo.modelo}"></td>
+                  <td th:text="${veiculo.possuiUtilitario}"></td>
+                  <td th:text="${veiculo.horaEntrada}"></td>
+                  <td><a th:href="@{/estacionamento/detalhessaidaveiculo/} + ${veiculo.id}" class="btn btn-light" style="margin: auto;"  type="submit" value="Submit">Saída</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+    <script type="text/javascript" th:src="@{/main.js}"></script>
+</body>
+</html>

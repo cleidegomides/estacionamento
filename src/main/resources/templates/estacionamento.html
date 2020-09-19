@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Estacionamento da Cleide</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark" style="justify-content: center; margin-bottom: 10px;">
+        <span class="navbar-brand mb-0 h1"><h2>Estacionamento</h2></span>
+        </nav>
+        <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Iniciar Estacionamento</li>
+        </ol>
+        </nav>
+</header>
+    <div class="container"></div>
+    <div class="container" style="margin-top: 30px;">
+        <div style="width: 40%; margin: auto;">
+            <th:block th:include="mensagemvalidacao"></th:block>
+            <form method="post" action="#">
+                <div class="form-group">
+                    <h3><label for="valorhora">Valor da Hora do estacionamento</label></h3>
+                    <input class="form-control" type="number" id="valorhora" name="valorhora" placeholder="Valor Hora *">
+                    <button class="btn btn-secondary btn-block" type="submit" value="Submit">Iniciar Estacionamento</button>
+                    (*)Campo Obrigatório
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

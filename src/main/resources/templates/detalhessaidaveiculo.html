@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Saida do veiculo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-dark bg-dark" style="justify-content: center; margin-bottom: 10px;">
+        <span class="navbar-brand mb-0 h1"><h2>Relatório Saída Veículo</h2></span>
+      </nav> 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Detalhes da saida do veiculo</li>
+        </ol>
+    </nav>
+    </header>
+    <section>
+        <div class="container">        
+        <form method="POST" action="/estacionamento/darsaida">
+            <input type="hidden" class="form-control" id="id" name="id" th:value="${veiculo.id}">
+
+            <div class="form-group">
+                <label for="txtplaca">Placa</label>
+                <input type="text" class="form-control" id="txtplaca" name="placa" th:value="${veiculo.placa}">
+            </div>
+
+            <div class="form-group">
+                <label for="tipoVeiculo">Tipo</label>
+                <input type="text" class="form-control" id="tipoVeiculo" name="tipoVeiculo" th:value="${veiculo.tipoVeiculo}">
+            </div>
+
+            <div class="form-group">
+                <label for="marcaCarro">Marca Carro</label>
+                <input type="text" class="form-control" id="marcaCarro" name="marcaCarro" th:value="${veiculo.marcaCarro}">
+            </div>
+
+            <div class="form-group">
+                <label for="marcaMoto">Marca Moto</label>
+                <input type="text" class="form-control" id="marcaMoto" name="marcaMoto" th:value="${veiculo.marcaMoto}">
+            </div>
+
+            <div class="form-group">
+                <label for="modelo">Modelo</label>
+                <input type="text" class="form-control" id="modelo" name="modelo" th:value="${veiculo.modelo}">
+            </div>
+
+            <div class="form-group">
+                <label for="utilitario">Tem Utilitario?</label>
+                <input type="text" class="form-control" id="utilitario" name="utilitario" th:value="${veiculo.utilitario}">
+            </div>
+
+            <div class="form-group">
+                <label for="horaEntrada">Hora Entrada</label>
+                <input type="time" class="form-control" id="horaEntrada" name="horaEntrada" th:value="${veiculo.horaEntrada}">
+            </div>
+
+            <div class="form-group">
+                <label for="horaSaida">Hora Saida</label>
+                <input type="time" class="form-control" id="horaSaida" name="horaSaida" th:value="${#temporals.format(veiculo.horaSaida, 'HH:mm')}">
+            </div>
+
+            <div class="form-group">
+                <label for="valor">Valor Total</label>
+                <input type="text" class="form-control" id="valor" name="valor" th:value=" ${#numbers.formatDecimal(veiculo.valor, 0, 'COMMA', 2, 'POINT')} ">
+            </div>
+            <button type="submit" class="btn btn-primary">Confirmar Saida</button>
+        </form>
+    </div>
+    </section>
+</body>
+</html>
